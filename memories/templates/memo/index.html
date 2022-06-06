@@ -1,0 +1,17 @@
+{% load socialaccount %}
+{% get_providers as socialaccount_providers %}
+Добрый день!
+Не знаю, как Вы отнесётесь к моей поделке. Наверно плохо. Да и мне она <br>
+не нравится. Делал 5 дней, из которых подавляющую часть убил на разбирательство <br>
+с тем, почему не хочет работать логин через Facebook. В любом случае, это моё первое <br>
+тестовое задание. Спасибо за интересное задание! <br>
+
+Залогиниться с помощью
+{% for provider in socialaccount_providers %}
+    {% if provider.id == "openid" %}
+        {% for brand in provider.get_brands %}
+          <a title="{{brand.name}}" class="{{provider.id}} {{brand.id}}" href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">{{brand.name}}</a>
+        {% endfor %}
+    {% endif %}
+    <a title="{{provider.name}}" class="{{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
+{% endfor %}

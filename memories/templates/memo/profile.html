@@ -1,0 +1,36 @@
+<img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
+<br>
+{{ user.first_name }}
+<br>
+<form method="post">
+  {% csrf_token %}
+  {{ form.title }}
+  <br>
+  {{ form.comment }}
+  <br>
+
+  <button type="submit">
+    Отправить
+  </button>
+  <br>
+</form>
+{% if is_nothing %}
+  У вас нет ни одного воспоминания
+{% endif %}
+{% for post in posts %}
+  <li>
+    {{ post.title }}
+  </li>
+  <li>
+    {{ post.comment }}
+  </li>
+  <br>
+{% endfor %}
+{% load i18n %}
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button type="submit">{% trans 'Sign Out' %}</button>
+</form>
