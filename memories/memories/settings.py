@@ -94,8 +94,8 @@ WSGI_APPLICATION = 'memories.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgis',
-        'NAME': 'test_spatial',
-        'USER': 'postgre_user',
+        'NAME': 'test_spatial2',
+        'USER': 'super',
         'PASSWORD': os.getenv("Password"),
         'HOST': 'Konstantin05-2676.postgres.pythonanywhere-services.com',
         'PORT': 12676,

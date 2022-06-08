@@ -1,4 +1,4 @@
-from django.db import models
+from django.gis.db import models
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -13,3 +13,4 @@ class InMemories(models.Model):
         max_length=255
     )
     comment = models.TextField()
+    location = models.PointField()
