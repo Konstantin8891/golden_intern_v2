@@ -3,6 +3,6 @@ from django.contrib import admin
 from .models import InMemories
 
 class InMemoriesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'coment', 'location')
+    list_display = ('title', 'comment', 'location')
 
 admin.site.register(InMemories, InMemoriesAdmin)
