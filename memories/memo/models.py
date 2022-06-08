@@ -13,4 +13,4 @@ class InMemories(models.Model):
         max_length=255
     )
     comment = models.TextField()
-    location = models.PointField()
+    location = models.PointField(srid=4326)
