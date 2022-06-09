@@ -69,6 +69,8 @@ ROOT_URLCONF = 'memories.urls'
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
+STATICFILES_DIRS = '/static/'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
