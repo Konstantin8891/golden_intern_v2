@@ -115,15 +115,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME':
-        'django.contrib.auth.password_validation.MinimumLengthValidator',
+        f'{AUTH_PWD_MODULE}MinimumLengthValidator',
     },
     {
         'NAME':
-        'django.contrib.auth.password_validation.CommonPasswordValidator',
+        f'{AUTH_PWD_MODULE}CommonPasswordValidator',
     },
     {
         'NAME':
-        'django.contrib.auth.password_validation.NumericPasswordValidator',
+        f'{AUTH_PWD_MODULE}NumericPasswordValidator',
     },
 ]
 
@@ -175,4 +175,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-GDAL_LIBRARY_PATH = 'C:\OSGeo4W\bin\gdal304.dll'
+# GDAL_LIBRARY_PATH = 'C:\OSGeo4W\bin\gdal304.dll'
