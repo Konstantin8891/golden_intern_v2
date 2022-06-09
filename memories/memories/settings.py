@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'memories.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgres',
         'NAME': 'test_spatial2',
         'USER': 'super',
         'PASSWORD': os.getenv("Password"),
@@ -177,4 +177,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# GDAL_LIBRARY_PATH = 'C:\OSGeo4W\bin\gdal304.dll'
+# comment when on server
+GDAL_LIBRARY_PATH = 'C:\OSGeo4W\bin\gdal304.dll'
