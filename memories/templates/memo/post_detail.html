@@ -15,13 +15,13 @@
     <h3>{{ post.title }}</h3>
     <br>
     {{ post.comment }}
+    <br>
     <script type="text/javascript">
       function map_init_basic (map, options) {
-      L.marker([{{ post.location }}]).addTo(map);
+      marker = new L.marker([{{ post.location.x }}, {{ post.location.y }}]).addTo(map);
       }
     </script>
     {% leaflet_map "map" callback="window.map_init_basic" %}
-    <!--{{ post.location }}-->
     <br>
     <form action="{% url 'memo:profile' %}" method="get" target="_blank">
       <button type="submit">Перейти в профиль</button>
