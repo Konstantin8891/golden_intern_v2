@@ -23,44 +23,16 @@
     <br>
     {{ user.first_name }}
     <br>
-    <!--{% leaflet_map "map" %}-->
-    <form method="POST">
-      {% csrf_token %}
-      {{ form.title }}
-      <br>
-      {{ form.comment }}
-      <br>
-
-      {{ form.location }}
-      <br>
-      <!--{{ markers|json_script:"markers-data" }}-->
-      <!--<div id="map"></div>-->
-      <!--<script src="{% static 'map.js' %}"></script>-->
-
-      <br>
-      <button type="submit">
-        Отправить
-      </button>
-      <br>
-    </form>
     {% if is_nothing %}
       У вас нет ни одного воспоминания
     {% endif %}
+    <form action="{% url 'memo:create' %}" method="get" target="_blank">
+      <button type="submit">Добавить воспоминание</button>
+    </form>
     {% for post in posts %}
       <li>
-        {{ post.title }}
+        <a href="{% url 'memo:post_detail' post.pk %}">{{ post.title }}</a>
       </li>
-      <li>
-        {{ post.comment }}
-      </li>
-      <script type="text/javascript">
-        function map_init_basic (map, options) {
-        L.marker([{{ post.location }}]).addTo(map);
-        }
-      </script>
-      {% leaflet_map "map" callback="window.map_init_basic" %}
-      <!--{{ post.location }}-->
-      <br>
     {% endfor %}
 
     {% load i18n %}

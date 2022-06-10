@@ -1,0 +1,30 @@
+{% load static %}
+{% load leaflet_tags %}
+<html>
+  <head>
+    {% leaflet_js %}
+    {% leaflet_css %}
+    <style media="screen">
+      #map {
+        width: 50%;
+        height: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>{{ post.title }}</h3>
+    <br>
+    {{ post.comment }}
+    <script type="text/javascript">
+      function map_init_basic (map, options) {
+      L.marker([{{ post.location }}]).addTo(map);
+      }
+    </script>
+    {% leaflet_map "map" callback="window.map_init_basic" %}
+    <!--{{ post.location }}-->
+    <br>
+    <form action="{% url 'memo:profile' %}" method="get" target="_blank">
+      <button type="submit">Перейти в профиль</button>
+    </form>
+  </body>
+</html>
