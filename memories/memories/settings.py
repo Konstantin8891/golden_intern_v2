@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.gis',
+    'leaflet',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -179,3 +180,11 @@ STATIC_URL = '/static/'
 
 # comment when on server
 GDAL_LIBRARY_PATH = 'C:\OSGeo4W\bin\gdal304.dll'
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (6.0, 45.0),
+    'DEFAULT_ZOOM': 16,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
+    'DEFAULT_PRECISION': 6,
+}
