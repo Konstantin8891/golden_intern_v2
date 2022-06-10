@@ -15,3 +15,6 @@ class InMemories(models.Model):
     )
     comment = models.TextField()
     location = models.PointField(srid=4326)
+
+    class Meta:
+        verbose_name_plural = 'In memories'
