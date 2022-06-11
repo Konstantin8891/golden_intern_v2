@@ -12,7 +12,7 @@ class InMemories(models.Model):
     )
     title = models.CharField(
         verbose_name='Заголовок',
-        help_text='Введите название воспоминания'
+        help_text='Введите название воспоминания',
         max_length=255
     )
     comment = models.TextField(
