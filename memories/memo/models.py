@@ -8,7 +8,7 @@ User = get_user_model()
 class InMemories(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(
-        verbose_name='Заголовок'
+        verbose_name='Заголовок',
         max_length=255
     )
     comment = models.TextField(verbose_name='Воспоминание')
