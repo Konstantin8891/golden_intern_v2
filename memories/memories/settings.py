@@ -70,8 +70,6 @@ ROOT_URLCONF = 'memories.urls'
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-STATICFILES_DIRS = '/static/'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -89,10 +87,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'memories.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -179,7 +173,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # comment when on server
-GDAL_LIBRARY_PATH = 'C:\OSGeo4W\bin\gdal304.dll'
+GDAL_LIBRARY_PATH = 'C:\\OSGeo4W\\bin\\gdal304.dll'
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (6.0, 45.0),

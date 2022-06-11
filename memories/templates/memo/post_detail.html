@@ -19,6 +19,7 @@
     <script type="text/javascript">
       function map_init_basic (map, options) {
       marker = new L.marker([{{ post.location.x }}, {{ post.location.y }}]).addTo(map);
+      map.panTo(new L.LatLng({{ post.location.x }}, {{ post.location.y }}));
       }
     </script>
     {% leaflet_map "map" callback="window.map_init_basic" %}
