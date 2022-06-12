@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'test_spatial2',
         'USER': 'postgres',
         'PASSWORD': os.getenv("Password"),
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }
