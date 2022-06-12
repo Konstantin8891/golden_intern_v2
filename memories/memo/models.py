@@ -19,7 +19,7 @@ class InMemories(models.Model):
         verbose_name='Воспоминание',
         help_text='Введите текст воспоминания'
     )
-    location = models.PointField(srid=4326)
+    location = PointField(srid=4326)
 
     class Meta:
         verbose_name_plural = 'In memories'
