@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
-from django.contrib.gis.db import models
+from django.contrib.gis.db.models import PointField
+from django.db import models
 
 User = get_user_model()
 
