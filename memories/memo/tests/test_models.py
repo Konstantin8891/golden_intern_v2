@@ -1,7 +1,10 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
+from django.test import TestCase
+from django.contrib.gis.geos import Point
 
-from ..models import InMemories 
+from ..models import InMemories
+
+User = get_user_model()
 
 
 class InMemoriesModelTest(TestCase):
@@ -10,9 +13,10 @@ class InMemoriesModelTest(TestCase):
         super().setUpClass()
         cls.user = User.objects.create_user(username='test')
         cls.memo = InMemories.objects.create(
+            user = cls.user,
             title='Заголовок',
             comment='Текст',
-            location=(0 0)
+            location=Point(0, 0)
         )
 
     def test_verbose_name(self):
