@@ -1,5 +1,4 @@
 from django import forms
-
 from leaflet.forms.widgets import LeafletWidget
 
 from .models import InMemories

@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.contrib.gis.geos import Point
 from django.test import Client, TestCase
@@ -15,16 +14,20 @@ class PostPagesTest(TestCase):
         super().setUpClass()
         cls.user = User.objects.create_user(username='test')
         cls.memo = InMemories.objects.create(
-            user = cls.user,
+            user=cls.user,
             title='Заголовок',
             comment='Текст',
             location=Point(0, 0)
         )
         cls.page_template = {
-            reverse('memo:index'): 'memo/index.html',
-            reverse('memo:profile'): 'memo/profile.html',
-            reverse('memo:create'): 'memo/create_post.html',
-            reverse('memo:post_detail', kwargs={'post_id': cls.memo.pk}): 'memo/post_detail.html',
+            reverse('memo:index'):
+            'memo/index.html',
+            reverse('memo:profile'):
+            'memo/profile.html',
+            reverse('memo:create'):
+            'memo/create_post.html',
+            reverse('memo:post_detail', kwargs={'post_id': cls.memo.pk}):
+            'memo/post_detail.html',
         }
         cls.memo_data = {
             'title': 'Заголовок1',
@@ -36,7 +39,7 @@ class PostPagesTest(TestCase):
         self.authorized_client = Client()
         self.authorized_client.force_login(self.user)
         self.guest_client = Client()
-    
+
     def test_pages_names(self):
         for page, template in self.page_template.items():
             with self.subTest(page=page):

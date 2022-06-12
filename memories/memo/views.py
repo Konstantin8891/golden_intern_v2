@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import FileResponse
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import InMemoriesForm
 from .models import InMemories

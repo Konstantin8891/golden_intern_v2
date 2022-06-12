@@ -13,7 +13,7 @@ class InMemoriesModelTest(TestCase):
         super().setUpClass()
         cls.user = User.objects.create_user(username='test')
         cls.memo = InMemories.objects.create(
-            user = cls.user,
+            user=cls.user,
             title='Заголовок',
             comment='Текст',
             location=Point(0, 0)
@@ -24,7 +24,7 @@ class InMemoriesModelTest(TestCase):
         field_verboses = {
             'title': 'Заголовок',
             'comment': 'Воспоминание',
-       }
+        }
         for field, expected_value in field_verboses.items():
             with self.subTest(field=field):
                 self.assertEqual(
@@ -39,4 +39,4 @@ class InMemoriesModelTest(TestCase):
         for field, expected_value in field_help_texts.items():
             with self.subTest(field=field):
                 self.assertEqual(
-                    memo._meta.get_field(field).help_text, expected_value) 
+                    memo._meta.get_field(field).help_text, expected_value)

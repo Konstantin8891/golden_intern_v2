@@ -1,8 +1,8 @@
 from http import HTTPStatus
 
 from django.contrib.auth import get_user_model
-from django.test import TestCase, Client
 from django.contrib.gis.geos import Point
+from django.test import Client, TestCase
 
 from ..models import InMemories
 
@@ -16,7 +16,7 @@ class InMemoriesURLTests(TestCase):
         # Создадим запись в БД для проверки доступности адреса task/test-slug/
         cls.user = User.objects.create_user(username='test')
         cls.memo = InMemories.objects.create(
-            user = cls.user,
+            user=cls.user,
             title='Заголовок',
             comment='Текст',
             location=Point(0, 0)
@@ -39,7 +39,6 @@ class InMemoriesURLTests(TestCase):
             f'/posts/{cls.memo.pk}/': 'memo/post_detail.html',
             '/create_post/': 'memo/create_post.html',
         }
-
 
     def setUp(self):
         self.guest_client = Client()
