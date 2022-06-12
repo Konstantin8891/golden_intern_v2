@@ -28,6 +28,7 @@ ALLOWED_HOSTS = [
     'www.konstantin07.pythonanywhere.com',
     'konstantin05.pythonanywhere.com',
     'www.konstantin05.pythonanywhere.com',
+    'testserver',
     'localhost',
     '127.0.0.1'
 ]
@@ -92,10 +93,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'test_spatial2',
-        'USER': 'super',
+        'USER': 'postgres',
         'PASSWORD': os.getenv("Password"),
-        'HOST': 'Konstantin05-2676.postgres.pythonanywhere-services.com',
-        'PORT': 12676,
+        'HOST': '',
+        'PORT': 5432,
     }
 }
 
