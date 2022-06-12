@@ -174,7 +174,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # comment when on server
-GDAL_LIBRARY_PATH = 'C:\\OSGeo4W\\bin\\gdal304.dll'
+# GDAL_LIBRARY_PATH = 'C:\OSGeo4W\bin\gdal304.dll'
 
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (6.0, 45.0),

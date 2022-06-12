@@ -1,8 +1,8 @@
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.contrib.gis.geos import Point
 from django.test import Client, TestCase
 from django.urls import reverse
-from django.contrib.gis.geos import Point
-from django.contrib.auth import get_user_model
 
 from ..models import InMemories
 
@@ -77,8 +77,8 @@ class PostPagesTest(TestCase):
         post_location = post_obj.location
         self.assertEqual(post_user, self.memo.user)
         self.assertEqual(post_title, self.memo.title)
-        self.assertEqual(post_comment, self.post.comment)
-        self.assertEqual(post_location, self.post.location)
+        self.assertEqual(post_comment, self.memo.comment)
+        self.assertEqual(post_location, self.memo.location)
 
     # Тест создания поста
     def test_post_create(self):

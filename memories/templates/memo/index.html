@@ -1,13 +1,28 @@
 {% load socialaccount %}
 {% get_providers as socialaccount_providers %}
-Добрый день!
+<html>
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css"> 
+</head> 
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Добрый день!</h3>
+        <p class="card-text">Мой сервис позволяет сохранять воспоминания о посещённых местах</p>
+      </div>
+    </div>
 
-Залогиниться с помощью
-{% for provider in socialaccount_providers %}
-    {% if provider.id == "openid" %}
-        {% for brand in provider.get_brands %}
-          <a title="{{brand.name}}" class="{{provider.id}} {{brand.id}}" href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">{{brand.name}}</a>
-        {% endfor %}
-    {% endif %}
-    <a title="{{provider.name}}" class="{{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
-{% endfor %}
+    <div class="card col-6">
+            
+      Залогиниться с помощью
+      {% for provider in socialaccount_providers %}
+        {% if provider.id == "openid" %}
+          {% for brand in provider.get_brands %}
+            <a title="{{brand.name}}" class="{{provider.id}} {{brand.id}}" href="{% provider_login_url provider.id openid=brand.openid_url process=process %}">{{brand.name}}</a>
+          {% endfor %}
+        {% endif %}
+        <a title="{{provider.name}}" class="{{provider.id}}" href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}">{{provider.name}}</a>
+      {% endfor %}
+    </div>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase
 from django.contrib.gis.geos import Point
+from django.test import TestCase
 
 from ..models import InMemories
 
@@ -39,4 +39,4 @@ class InMemoriesModelTest(TestCase):
         for field, expected_value in field_help_texts.items():
             with self.subTest(field=field):
                 self.assertEqual(
-                    task._meta.get_field(field).help_text, expected_value) 
+                    memo._meta.get_field(field).help_text, expected_value) 
