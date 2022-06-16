@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'memories.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'test_spatial2',
+        'NAME': 'test_spatial3',
         'USER': 'postgres',
         'PASSWORD': os.getenv("Password"),
         'HOST': 'localhost',
