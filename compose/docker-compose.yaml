@@ -8,10 +8,10 @@ services:
     # образ, из которого должен быть запущен контейнер
     image: postgis/postgis:14-3.2
     # volume и связанная с ним директория в контейнере
-    environment:
-      POSTGRES_PASSWORD: "test"
+    # environment:
+    #   POSTGRES_PASSWORD: "test"
     volumes:
-      - /var/lib/postgresql/data/
+      - db_volume:/var/lib/postgresql/data/
     # адрес файла, где хранятся переменные окружения
     env_file:
       - ./.env
@@ -52,6 +52,6 @@ services:
       # Контейнер nginx должен быть запущен после контейнера web
       - web
 volumes:
-  db:
+  db_volume:
   static_value:
   media_value:
