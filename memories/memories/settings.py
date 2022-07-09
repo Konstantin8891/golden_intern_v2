@@ -21,16 +21,15 @@ load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'konstantin07.pythonanywhere.com',
-    'www.konstantin07.pythonanywhere.com',
     'konstantin05.pythonanywhere.com',
     'www.konstantin05.pythonanywhere.com',
     'testserver',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    'web'
 ]
 
 
@@ -92,8 +91,8 @@ WSGI_APPLICATION = 'memories.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'test_spatial3',
-        'USER': 'postgres',
+        'NAME': 'postgres',
+        'USER': os.getenv("User"),
         'PASSWORD': os.getenv("Password"),
         'HOST': 'localhost',
         'PORT': 5432,
